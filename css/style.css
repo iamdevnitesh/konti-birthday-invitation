@@ -115,6 +115,22 @@ html, body {
   font-weight: 700;
 }
 
+.gift-note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(99, 13, 21, 0.08), rgba(110, 204, 204, 0.12));
+  border: 1px dashed rgba(99, 13, 21, 0.4);
+  border-radius: 12px;
+  color: #630d15;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.gift-note span {
+  margin-right: 0.35rem;
+}
+
 .rsvp-card {
   width: 100%;
   max-width: 400px;
