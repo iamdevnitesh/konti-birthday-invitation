@@ -1,0 +1,295 @@
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', 'Open Sans', sans-serif;
+  color: #1d3a3a;
+  overflow: hidden;
+}
+
+#world {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6ecccc;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#world canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5%;
+  gap: 2rem;
+  pointer-events: none;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(50, 134, 133, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  pointer-events: auto;
+}
+
+.invite-card {
+  max-width: 380px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #328685 0%, #630d15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #328685;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #1d3a3a;
+  margin-bottom: 1.5rem;
+}
+
+.details-card {
+  background: linear-gradient(135deg, rgba(110, 204, 204, 0.18), rgba(99, 13, 21, 0.06));
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  text-align: right;
+}
+
+.details-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #328685;
+  margin-bottom: 0.75rem;
+}
+
+.details-card p {
+  font-size: 0.92rem;
+  margin: 0.4rem 0;
+  color: #1d3a3a;
+}
+
+.details-card strong {
+  color: #630d15;
+  font-weight: 700;
+}
+
+.rsvp-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.rsvp-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #328685;
+  margin-bottom: 0.5rem;
+}
+
+.rsvp-question {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1d3a3a;
+}
+
+.accent {
+  color: #630d15;
+  font-weight: 700;
+}
+
+.rsvp-hint {
+  font-size: 0.9rem;
+  color: #5a7878;
+  margin-bottom: 1.25rem;
+}
+
+.rsvp-box {
+  position: relative;
+  border: 2px solid rgba(110, 204, 204, 0.45);
+  background: rgba(110, 204, 204, 0.06);
+  border-radius: 18px;
+  padding: 1.5rem;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.btn .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #2bd17e, #0fa15a);
+}
+
+.btn-yes:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(15, 161, 90, 0.35);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, #ff5e6c, #d62a2a);
+}
+
+.btn-no.dodging {
+  position: absolute;
+  transition: top 0.18s ease, left 0.18s ease;
+  z-index: 5;
+}
+
+.status {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.not-happening {
+  color: #d62a2a;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.escape-counter {
+  font-size: 0.85rem;
+  color: #5a7878;
+}
+
+.status-yes p {
+  color: #0fa15a;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+  pointer-events: none;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  html, body {
+    overflow: auto;
+    height: auto;
+  }
+
+  #world {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 38vh;
+  }
+
+  .overlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 1rem;
+    padding-bottom: calc(38vh + 2.5rem);
+    gap: 1rem;
+    height: auto;
+    min-height: auto;
+    pointer-events: auto;
+  }
+
+  .invite-card,
+  .rsvp-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .title { font-size: 2.2rem; }
+  .rsvp-box { height: 240px; }
+
+  .footer {
+    bottom: 0.4rem;
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konti's Birthday Pawty!</title>
+  <meta name="description" content="You're invited to Konti's Birthday Pawty! RSVP for an evening of meows, treats, and cuddles.">
+  <meta property="og:title" content="Konti's Birthday Pawty!">
+  <meta property="og:description" content="Join us for meows, treats, and lots of cuddles.">
+  <meta property="og:image" content="preview.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="world"></div>
+
+  <main class="overlay">
+    <section class="card invite-card" aria-labelledby="invite-title">
+      <h1 id="invite-title" class="title">You're Invited!</h1>
+      <h2 class="subtitle">Konti's Birthday Pawty!</h2>
+      <p class="description">
+        Join us for meows, treats, and lots of cuddles as we celebrate
+        our precious furball turning another year older!
+      </p>
+      <div class="details-card">
+        <h3>Party Details</h3>
+        <p><strong>Date:</strong> 29-04-2026</p>
+        <p><strong>Time:</strong> 6:00 PM &ndash; 7:00 PM</p>
+        <p><strong>Place:</strong> Dipali's house</p>
+      </div>
+    </section>
+
+    <section class="card rsvp-card" aria-labelledby="rsvp-title">
+      <h2 id="rsvp-title" class="rsvp-title">RSVP</h2>
+      <p class="rsvp-question">Are you going to <span class="accent">come</span> to the party?</p>
+      <p class="rsvp-hint">Konti really hopes you'll be there!</p>
+
+      <div class="rsvp-box" id="rsvp-box">
+        <button id="yes-btn" class="btn btn-yes" type="button">
+          <span class="icon" aria-hidden="true">&#9829;</span> Yes!
+        </button>
+        <button id="no-btn" class="btn btn-no" type="button">
+          <span class="icon" aria-hidden="true">&times;</span> No
+        </button>
+
+        <div class="status status-escape" id="escape-info" hidden>
+          <p class="not-happening">Not happening!</p>
+          <p class="escape-counter">Escape attempts: <span id="escape-count">0</span></p>
+        </div>
+
+        <div class="status status-yes" id="yes-info" hidden>
+          <p>Yay! Konti is purring with joy!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Made with love for Konti</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/OrbitControls.js"></script>
+  <script src="js/Cat.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>
